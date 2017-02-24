@@ -15,6 +15,7 @@ void		read_piece(t_game *game, char piece[game->piece.y][game->piece.x])
 		{
 			if (piece[y][x] == '*' || piece[y][x] == '.')
 			{
+				//game->p_symb = ft_charjoin(game->p_symb, piece[y][x]);
 				game->p_coord.px[i] = x;
 				game->p_coord.py[i] = y;
 				i++;
@@ -23,8 +24,9 @@ void		read_piece(t_game *game, char piece[game->piece.y][game->piece.x])
 		}
 		y++;
 	}
-	printf("!!!!!!i = %d!!!!!!!!!!!\n", i);
+	//printf("!!!!!!i = %d!!!!!!!!!!!\n", i);
 	game->p_coord.i = i;
+	remember_piece(game, piece);
 }
 
 void		read_o_map(t_game *game, char map[game->map.y][game->map.x])
@@ -96,5 +98,4 @@ void		read_x_map(t_game *game, char map[game->map.y][game->map.x])
 		printf("my_y = %d\n", game->p_coord.xmy[i]);
 		i++;
 	}*/
-
 }
