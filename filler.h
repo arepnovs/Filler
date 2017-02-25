@@ -11,14 +11,8 @@ typedef struct		s_cd
 	int				x;
 	int				y;
 	int 			i;
-	int				px[1000];
-	int				py[1000];
-	int				xi;
-	int				xmx[1000];
-	int				xmy[1000];
-	int				oi;
-	int				omx[1000];
-	int				omy[1000];
+	int				*px;
+	int				*py;
 }					t_cd;
 
 typedef struct		s_game
@@ -28,8 +22,9 @@ typedef struct		s_game
 	char			**m_symb;
 	t_cd			map;
 	t_cd			piece;
-	t_cd			p_coord;
-	t_cd			allp;
+	t_cd			p1;
+	t_cd			p2;
+	t_cd			all_ok;
 	t_cd			t;
 }					t_game;
 

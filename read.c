@@ -8,6 +8,8 @@ void		read_piece(t_game *game, char piece[game->piece.y][game->piece.x])
 
 	y = 0;
 	i = 0;
+	game->piece.px = (int *)malloc(sizeof(int) * 1000);
+	game->piece.py = (int *)malloc(sizeof(int) * 1000);
 	while (y < game->piece.y)
 	{
 		x = 0;
@@ -15,17 +17,15 @@ void		read_piece(t_game *game, char piece[game->piece.y][game->piece.x])
 		{
 			if (piece[y][x] == '*' || piece[y][x] == '.')
 			{
-				//game->p_symb = ft_charjoin(game->p_symb, piece[y][x]);
-				game->p_coord.px[i] = x;
-				game->p_coord.py[i] = y;
+				game->piece.px[i] = x;
+				game->piece.py[i] = y;
 				i++;
 			}
 			x++;
 		}
 		y++;
 	}
-	//printf("!!!!!!i = %d!!!!!!!!!!!\n", i);
-	game->p_coord.i = i;
+	game->piece.i = i;
 	remember_piece(game, piece);
 }
 
@@ -37,6 +37,8 @@ void		read_o_map(t_game *game, char map[game->map.y][game->map.x])
 
 	y = 0;
 	i = 0;
+	game->p1.px = (int *)malloc(sizeof(int) * 1000);
+	game->p1.py = (int *)malloc(sizeof(int) * 1000);
 	while (y < game->map.y)
 	{
 		x = 0;
@@ -44,25 +46,15 @@ void		read_o_map(t_game *game, char map[game->map.y][game->map.x])
 		{
 			if (map[y][x] == 'O' || map[y][x] == 'o')
 			{
-				game->p_coord.omx[i] = x;
-				game->p_coord.omy[i] = y;
+				game->p1.px[i] = x;
+				game->p1.py[i] = y;
 				i++;
 			}
 			x++;
 		}
 		y++;
 	}
-	game->p_coord.oi = i;
-	/*x = i;
-	i = 0;
-	printf("!!!!!!x = %d!!!!!!!!!!!\n", x);
-	while (i < x)
-	{
-		printf("enemy_x = %d\n", game->p_coord.omx[i]);
-		printf("enemy_y = %d\n", game->p_coord.omy[i]);
-		i++;
-	}*/
-
+	game->p1.i = i;
 }
 
 void		read_x_map(t_game *game, char map[game->map.y][game->map.x])
@@ -73,6 +65,8 @@ void		read_x_map(t_game *game, char map[game->map.y][game->map.x])
 
 	y = 0;
 	i = 0;
+	game->p2.px = (int *)malloc(sizeof(int) * 1000);
+	game->p2.py = (int *)malloc(sizeof(int) * 1000);
 	while (y < game->map.y)
 	{
 		x = 0;
@@ -80,22 +74,13 @@ void		read_x_map(t_game *game, char map[game->map.y][game->map.x])
 		{
 			if (map[y][x] == 'X' || map[y][x] == 'x')
 			{
-				game->p_coord.xmx[i] = x;
-				game->p_coord.xmy[i] = y;
+				game->p2.px[i] = x;
+				game->p2.py[i] = y;
 				i++;
 			}
 			x++;
 		}
 		y++;
 	}
-	game->p_coord.xi = i;
-	/*x = i;
-	i = 0;
-	printf("!!!!!!x = %d!!!!!!!!!!!\n", x);
-	while (i < x)
-	{
-		printf("my_x = %d\n", game->p_coord.xmx[i]);
-		printf("my_y = %d\n", game->p_coord.xmy[i]);
-		i++;
-	}*/
+	game->p2.i = i;
 }
