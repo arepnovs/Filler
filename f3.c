@@ -26,10 +26,10 @@ int			check_o(t_game *game, int tx, int ty)
 	i = 0;
 	flag = 0;
 	re_coord(game, tx, ty);
-	while (y < game->piece.y )
+	while (y < game->piece.y)
 	{
 		x = 0;
-		while (x < game->piece.x )
+		while (x < game->piece.x)
 		{
 			if ((game->m_symb[game->t.py[i]][game->t.px[i]] == 'O' 
 				|| game->m_symb[game->t.py[i]][game->t.px[i]] == 'o'
@@ -49,7 +49,7 @@ int			check_o(t_game *game, int tx, int ty)
 				i++;
 			}
 			else 
-				return(0);
+				return (0);
 			x++;
 		}
 		y++;
@@ -68,10 +68,10 @@ int			check_x(t_game *game, int tx, int ty)
 	i = 0;
 	flag = 0;
 	re_coord(game, tx, ty);
-	while (y < game->piece.y )
+	while (y < game->piece.y)
 	{
 		x = 0;
-		while (x < game->piece.x )
+		while (x < game->piece.x)
 		{
 			if ((game->m_symb[game->t.py[i]][game->t.px[i]] == 'X' 
 				|| game->m_symb[game->t.py[i]][game->t.px[i]] == 'x'
@@ -91,7 +91,7 @@ int			check_x(t_game *game, int tx, int ty)
 				i++;
 			}
 			else 
-				return(0);
+				return (0);
 			x++;
 		}
 		y++;
@@ -104,11 +104,10 @@ t_cd		all_o(t_game *game, int x, int y, int *i)
 	int tx;
 	int ty;
 	t_cd res;
-	int j;
 
 	tx = x - (game->piece.x - 1);
 	ty = y - (game->piece.y - 1);
-	while(ty <= y)
+	while (ty <= y)
 	{
 		while (tx <= x)
 		{
@@ -123,14 +122,9 @@ t_cd		all_o(t_game *game, int x, int y, int *i)
 		tx = x - (game->piece.x - 1);
 		ty++;
 	}
-	j = 0;
-	/*ft_putnbr_fd(game->all_ok.px[(*i) - 1], 1);
-	write(1, " ", 1);
-	ft_putnbr_fd(game->all_ok.py[(*i) - 1], 1);
-	write(1, "\n", 1);*/
 	res.x = game->all_ok.px[(*i) - 1];
 	res.y = game->all_ok.py[(*i) - 1];
-	return(res);
+	return (res);
 }
 
 t_cd		all_x(t_game *game, int x, int y, int *i)
@@ -142,7 +136,7 @@ t_cd		all_x(t_game *game, int x, int y, int *i)
 
 	tx = x - (game->piece.x - 1);
 	ty = y - (game->piece.y - 1);
-	while(ty <= y)
+	while (ty <= y)
 	{
 		while (tx <= x)
 		{
@@ -158,13 +152,9 @@ t_cd		all_x(t_game *game, int x, int y, int *i)
 		ty++;
 	}
 	j = 0;
-	/*ft_putnbr_fd(game->all_ok.px[0], 1);
-	write(1, " ", 1);
-	ft_putnbr_fd(game->all_ok.py[0], 1);
-	write(1, "\n", 1);*/
 	res.x = game->all_ok.px[j];
 	res.y = game->all_ok.py[j];
-	return(res);
+	return (res);
 }
 
 void		ft_recu_solver(t_game *game)
