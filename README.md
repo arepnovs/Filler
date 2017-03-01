@@ -18,7 +18,7 @@ How to start the game:
 
 4. To enable coloring of output add "| colorme" to the previous command;
 
-5. ???;
+5. ???
 
 6. arepnovs_filler wins:)*;
 
