@@ -22,6 +22,6 @@ How to start the game:
 
 6. arepnovs_filler wins:)*;
 
-/*except the situations, when the game-master program gives impossible for placement piece/**.
+\*except the situations, when the game-master program gives impossible for placement piece\**.
 
-/**it happens, but not very often.
+\**it happens, but not very often.
