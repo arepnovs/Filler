@@ -16,7 +16,7 @@ How to start the game:
 
 3. Run next command: ./filler_vm -p1 [path to player1] -p2 [path to player2] -v -f maps/[chose map];
 
-4. To enable coloring of output add "| colorme" to the previous command;
+4. To enable coloring of output add "| ../colorme" to the previous command;
 
 5. ???
 
