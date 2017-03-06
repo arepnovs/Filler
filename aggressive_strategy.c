@@ -12,7 +12,7 @@
 
 #include "filler.h"
 
-t_cd	find_move_x(t_game *game, int *i)//find last move of player 2
+t_cd	find_move_x(t_game *game, int *i)
 {
 	int		y;
 	int		x;
@@ -40,7 +40,7 @@ t_cd	find_move_x(t_game *game, int *i)//find last move of player 2
 	return (e_move);
 }
 
-t_cd	find_move_o(t_game *game, int *i)//find last move of player 1
+t_cd	find_move_o(t_game *game, int *i)
 {
 	int		y;
 	int		x;
@@ -89,19 +89,20 @@ t_cd	read_move(t_game *gm, int i)
 	return (e_move);
 }
 
-void	millitary_secret(t_game *game, int j, int i)//not very secret, but...
+void	millitary_secret(t_game *game, int j, int i)
 {
 	float	res;
 	float	s_res;
 
 	s_res = 100000000.0;
-	while (j < game->all_ok.i)// okay, okay...
-	{ //finding the distance between all posible for placement corrdinates and coordinates of the last move of the enemy
-		res = ft_sqrt(mult(game->all_ok.px[j], game->e_move.px[i]), mult(game->all_ok.py[j], game->e_move.py[i]));
+	while (j < game->all_ok.i)
+	{
+		res = ft_sqrt(mult(game->all_ok.px[j], game->e_move.px[i]),
+			mult(game->all_ok.py[j], game->e_move.py[i]));
 		if (res < s_res)
 		{
 			s_res = res;
-			game->all_ok.px[0] = game->all_ok.px[j];//these coordinates are the closest to the last move of the enemy
+			game->all_ok.px[0] = game->all_ok.px[j];
 			game->all_ok.py[0] = game->all_ok.py[j];
 		}
 		j++;
@@ -117,7 +118,7 @@ t_game	*aggressive(t_game *gm)
 	j = 0;
 	gm->e_move = read_move(gm, i);
 	j = 0;
-	if (gm->e_move.py[0] >= 0)
+	if (gm->e_move.py[0] >= 0 && gm->e_move.i > 0)
 	{
 		while (i < gm->e_move.i)
 		{

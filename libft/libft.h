@@ -6,7 +6,7 @@
 /*   By: arepnovs <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/05 16:56:17 by arepnovs          #+#    #+#             */
-/*   Updated: 2016/12/10 16:45:12 by arepnovs         ###   ########.fr       */
+/*   Updated: 2017/03/01 20:24:48 by arepnovs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,12 @@ typedef struct		s_list
 
 typedef struct		s_gnl
 {
-    int				fd;
-    char			*str;
-    struct s_gnl	*next;
+	int				fd;
+	char			*str;
+	struct s_gnl	*next;
 }					t_gnl;
 
-int                 get_next_line(const int fd, char **line);
+int					get_next_line(const int fd, char **line);
 void				ft_swap(int *a, int *b);
 size_t				ft_strnlen(const char *s, size_t maxlen);
 char				*ft_strcapitalize(char *str);
@@ -97,6 +97,6 @@ void				ft_lstadd(t_list **alst, t_list *new);
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 void				ft_arr_putstr(char **str);
-char                *ft_charjoin(const char *s1, const char s2);
+char				*ft_charjoin(const char *s1, const char s2);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: arepnovs <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/19 16:25:27 by arepnovs          #+#    #+#             */
-/*   Updated: 2017/01/20 15:11:01 by arepnovs         ###   ########.fr       */
+/*   Updated: 2017/03/01 18:55:44 by arepnovs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static t_gnl	*new_gnl(int fd)
 	return (new);
 }
 
-static char	*ft_read(int fd, char *tail, int *ret)
+static char		*ft_read(int fd, char *tail, int *ret)
 {
 	char	buf[BUFF_SIZE + 1];
 	char	*buf2;
@@ -66,7 +66,7 @@ static int		get_line(char **tail, char **line, int fd)
 	return (ret);
 }
 
-int		get_next_line(const int fd, char **line)
+int				get_next_line(const int fd, char **line)
 {
 	static t_gnl	*s;
 	t_gnl			*tail;

@@ -12,6 +12,23 @@
 
 #include "filler.h"
 
+int		check_rep(t_cd res, int y, int x, int j)
+{
+	int i;
+
+	if (j == 0)
+		return (1);
+	else
+		i = 0;
+	while (res.py[i] && i < j)
+	{
+		if (res.py[i] == y && res.px[i] == x)
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
 int		make_check_o(t_game *g, int ty, int tx, int i)
 {
 	int res;
@@ -28,11 +45,11 @@ int		make_check_o(t_game *g, int ty, int tx, int i)
 		&& g->t.py[i] <= g->map.y - (g->piece.y - i)
 		&& g->t.px[i] <= g->map.x - (g->piece.x - i))
 	{
-		res++;
+		res = 1;
 		if ((g->m_symb[g->t.py[i]][g->t.px[i]] == 'O'
 			|| g->m_symb[g->t.py[i]][g->t.px[i]] == 'o')
 			&& g->p_symb[g->t.py[i] - ty][g->t.px[i] - tx] == '*')
-			res++;
+			res = 2;
 		return (res);
 	}
 	else
@@ -78,11 +95,14 @@ t_game	*all_o(t_game *game, int x, int y, int *i)
 	{
 		while (tx <= x)
 		{
-			if (tx >= 0 && ty >= 0 && check_o(game, tx, ty) == 1)
+			if (check_rep(game->all_ok, ty, tx, (*i)) == 1)
 			{
-				game->all_ok.px[(*i)] = tx;
-				game->all_ok.py[(*i)] = ty;
-				(*i)++;
+				if (tx >= 0 && ty >= 0 && check_o(game, tx, ty) == 1)
+				{
+					game->all_ok.px[(*i)] = tx;
+					game->all_ok.py[(*i)] = ty;
+					(*i) = (*i) + 1;
+				}
 			}
 			tx++;
 		}

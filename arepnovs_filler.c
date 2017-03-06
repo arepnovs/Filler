@@ -70,7 +70,7 @@ void	get_map(t_game *game)
 
 void	use_strategy(t_game *game)
 {
-	if (game->map.y < 100 && game->piece.y < 50)
+	if (game->piece.y < 30 && game->piece.x < 30)
 		game = aggressive(game);
 	ft_putnbr_fd(game->all_ok.py[0], 1);
 	write(1, " ", 1);
@@ -85,8 +85,8 @@ void	game_start(t_game *game)
 
 	i = 0;
 	j = 0;
-	game->all_ok.px = (int *)malloc(sizeof(int) * (game->map.x * game->map.y));
-	game->all_ok.py = (int *)malloc(sizeof(int) * (game->map.x * game->map.y));
+	game->all_ok.px = (int *)malloc(sizeof(int) * (50000));
+	game->all_ok.py = (int *)malloc(sizeof(int) * (50000));
 	game->t.px = (int *)malloc(sizeof(int) * (game->map.x * game->map.y));
 	game->t.py = (int *)malloc(sizeof(int) * (game->map.x * game->map.y));
 	if (game->sign == 'O')

@@ -98,11 +98,14 @@ t_game	*all_x(t_game *game, int x, int y, int *i)
 	{
 		while (tx <= x)
 		{
-			if (tx >= 0 && ty >= 0 && check_x(game, tx, ty) == 1)
+			if (check_rep(game->all_ok, ty, tx, (*i)) == 1)
 			{
-				game->all_ok.px[(*i)] = tx;
-				game->all_ok.py[(*i)] = ty;
-				(*i)++;
+				if (tx >= 0 && ty >= 0 && check_x(game, tx, ty) == 1)
+				{
+					game->all_ok.px[(*i)] = tx;
+					game->all_ok.py[(*i)] = ty;
+					(*i) = (*i) + 1;
+				}
 			}
 			tx++;
 		}
