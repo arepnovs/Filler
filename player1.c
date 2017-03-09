@@ -93,15 +93,17 @@ t_game	*all_o(t_game *game, int x, int y, int *i)
 	ty = y - (game->piece.y - 1);
 	while (ty <= y)
 	{
-		while (tx <= x)
+		while (tx <= x && ty >= 0)
 		{
-			if (check_rep(game->all_ok, ty, tx, (*i)) == 1)
+			if (check_rep(game->all_ok, ty, tx, (*i)) == 1 && (*i) < 1000 && tx >= 0)
 			{
 				if (tx >= 0 && ty >= 0 && check_o(game, tx, ty) == 1)
 				{
 					game->all_ok.px[(*i)] = tx;
 					game->all_ok.py[(*i)] = ty;
 					(*i) = (*i) + 1;
+					if (game->piece.y > 30 || game->piece.x > 30)
+						break;
 				}
 			}
 			tx++;

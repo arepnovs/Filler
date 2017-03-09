@@ -70,7 +70,7 @@ void	get_map(t_game *game)
 
 void	use_strategy(t_game *game)
 {
-	if (game->piece.y < 30 && game->piece.x < 30)
+	if (game->piece.y < 30 || game->piece.x < 30)
 		game = aggressive(game);
 	ft_putnbr_fd(game->all_ok.py[0], 1);
 	write(1, " ", 1);
