@@ -69,6 +69,7 @@ t_cd		find_move_o(t_game *game, int *i);
 t_cd		read_move(t_game *gm, int i);
 void		millitary_secret(t_game *game, int j, int i);
 t_game		*aggressive(t_game *gm);
+int		ft_abs(int x);
 /*bonus*/
 int			get_res(char *line);
 void		input_check(char *line);
