@@ -100,16 +100,15 @@ int		ft_abs(int x)
 
 void	millitary_secret(t_game *game, int j, int i)
 {
-	int	res;
-	int	s_res;
+	float	res;
+	float	s_res;
 
-	s_res = 1000;
-	//res = (abs(game->all_ok.px[j] - game->e_move.px[i]) + abc(game->all_ok.py[j] - game->e_move.py[i]))
-	while (j < game->all_ok.i)
+	s_res = 1000.0;
+	while (j < game->all_ok.i)/*2 realisation of the same strategy*/
 	{
 		res = (ft_abs(game->all_ok.px[j] - game->e_move.px[i]) + ft_abs(game->all_ok.py[j] - game->e_move.py[i]));
 		/*res = ft_sqrt(mult(game->all_ok.px[j], game->e_move.px[i]),
-			mult(game->all_ok.py[j], game->e_move.py[i]));*/
+			mult(game->all_ok.py[j], game->e_move.py[i]));  --this strategy quite slow but more accurate*/
 		if (res < s_res)
 		{
 			s_res = res;
