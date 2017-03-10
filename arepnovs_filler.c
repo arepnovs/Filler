@@ -111,10 +111,8 @@ int		main(void)
 {
 	char	*line;
 	t_game	game;
-	int		i;
 	int		ret;
 
-	i = 0;
 	while ((ret = get_next_line(0, &line)) > 0)
 	{
 		if (line[1] == '$')
