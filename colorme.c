@@ -42,10 +42,14 @@ void	input_check(char *line)
 	{
 		while (line[i])
 		{
-			if (line[i] == 'O' || line[i] == 'o')
+			if (line[i] == 'O')
 				printf(RED "%c" RESET, line[i]);
-			else if (line[i] == 'X' || line[i] == 'x')
+			else if (line[i] == 'o')
+				printf(YELLOW "%c" RESET, line[i]);
+			else if (line[i] == 'X')
 				printf(BLUE "%c" RESET, line[i]);
+			else if (line[i] == 'x')
+				printf(GREEN "%c" RESET, line[i]);
 			else
 				printf("%c", line[i]);
 			i++;
