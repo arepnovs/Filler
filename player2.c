@@ -38,10 +38,8 @@ int		make_check_x(t_game *g, int ty, int tx, int i)
 
 	res = 0;
 	if ((g->m_symb[g->t.py[i]][g->t.px[i]] == 'X'
-		|| g->m_symb[g->t.py[i]][g->t.px[i]] == 'x'
 		|| g->m_symb[g->t.py[i]][g->t.px[i]] == '.'
-		|| (((g->m_symb[g->t.py[i]][g->t.px[i]] == 'O'
-		|| g->m_symb[g->t.py[i]][g->t.px[i]] == 'o')
+		|| (((g->m_symb[g->t.py[i]][g->t.px[i]] == 'O')
 		&& g->p_symb[g->t.py[i] - ty][g->t.px[i] - tx] == '.')))
 		&& g->flag <= 1 && g->t.py[i] + (g->piece.py[i] - i) <= g->map.y
 		&& g->t.px[i] + (g->piece.px[i] - i) <= g->map.x
